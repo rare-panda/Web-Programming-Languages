@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Python Flask Todo List App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../static/signup.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                 
+                </ul>
+               
+              </div>
+            </nav>
+
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Welcome Home !!</h1>
+
+        <br><br>
+            <h1>ToDo List</h1>
+            
+            <br>
+            <td>
+              <input class="hide" type="text" id="texttitle" placeholder ="Update Title" />
+              </td>
+              <br>
+              <td><textarea maxlength="1000" class="hide" type="text" id="textdes" placeholder ="Update Description"></textarea></td>
+              <br><br>
+            <table class="table table-bordered">
+
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Options</th>
+                  <th scope="col">Completed</th>
+                </tr>
+              </thead>
+              
+              {% for item in output_data %}
+              <tr>
+                  <td>{{item[1]}}</td>
+                  
+                  <td>{{item[2]}}</td>
+
+                  <td>
+                  <button class="edit" value='"+id+"' title="Edit" data-toggle="tooltip" id="{{item[0]}}" onclick="" ><i class="fa fa-pencil"></i></button>
+                  <button class="delete" title="Delete" data-toggle="tooltip" id="{{item[0]}}"><i class="fa fa-trash-o"></i></button>
+                  <span><button display ="none" class="update" title="Delete" data-toggle="tooltip" id="{{item[0]}}">Update</button></span></td>
+                  <td>
+                    <input class = "complete" type="checkbox" id="complete" name="complete" value="{{item[4]}}">
+                  </td>
+              </tr>
+              {% endfor %}
+            </table>
+            
+        </div>
+
+
+    </div>
+</body>
+
+</html>

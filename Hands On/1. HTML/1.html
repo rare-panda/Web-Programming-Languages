@@ -1,0 +1,59 @@
+<!doctype html> <!--Defines the type off fifle : html-->
+<html lang ="en">  <!--Requrired elemts for xhtml: lang, head,title, body-->
+<head>
+    <title> Join a social network </title>
+    <style>
+        div{
+            margin-bottom: 10px;
+        }
+        label{
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Join a social network </h1>
+    <form>
+        <div>
+            <label for="username"> Username </label> <!--For attribute value should be same as id value in next line-->
+            <input type= "text" id="username" name = "username" required placeholder="username">
+        </div>
+        <div>
+            <label for="pwd">Password</label> <!--To create the lable password and insert password text box where letteres entered are *-->
+            <input type="password" id="pwd" name="pwd" required>
+        </div>
+        <div>
+            <label for="email"> Email address</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="phone"> Phone number</label>
+            <input type="tel" id="'phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> (972-883-3575)
+        </div>
+        <div>
+            <label for="about">About you</label>
+            <textarea id="about" name="about" cols ="30" rows="3"></textarea>
+        </div>
+        <div>
+            <label for="picture">Photo</label>
+            <input type ="file" id="picture" name="picture">
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+                <option value="d">Do not wish to tell</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" id="agree" name = "agree" checked value="agreed" required> I agree to the terms of service and privvacy policy.<br>
+        </div>
+        <div>
+            <input type = "submit" value = "submit"> <!--Submit button. Values entered in the form are submitted to the same page and can also be found on the URL-->
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+    <head><title> TODO List</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#input").hide()
+                
+
+                $("#add").click(function(){
+                    $("input").toggle()
+                });
+
+                $("#new").keypress(function(event){
+                    if(event.which === 13){
+                    $("ul").append(
+                        "<li class='list-group-item'><span id='bin' class='trash_button'><i class='fa fa-trash'></i></span>" + $("#new").val() + "</li>"
+                )
+                    document.getElementById("new").value = "";
+                    $("input").hide()
+                }});
+
+                $("ul").on("click", "li", function(){
+                     $(this).toggleClass("done");
+                });
+
+               $("ul").on("mouseenter", "li", function() {
+                $("#bin" , this).css("display" , "inline");
+               });
+
+               $("ul").on("mouseleave", "li", function() {
+                $("#bin" , this).css("display" , "none");
+               });
+
+                var close = document.getElementsByClassName("trash_button");
+                var i;
+                for (i = 0; i < close.length; i++) {
+                    close[i].onclick = function() {
+                    this.parentElement.remove();
+                    }
+                }
+            });
+        </script>
+
+        <style>
+            .done{
+            text-decoration: line-through;
+            }   
+
+            #heading{
+                background-color: darkslateblue;
+                color: white;
+            }
+
+
+            #add{
+                color: white;
+                align-self: center;
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class= "row" id="heading">
+                        <div class="col-sm-10"><h3>TODO List</h3></div> 
+                        <div class="col-sm-2"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" id="add" viewBox="0 0 16 16" align = "right">
+                        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                        </svg></div>
+                    </div>
+                    <div> <input type="text" placeholder= "Enter Text.." id = "new"> </div>
+                    <ul class="list-group">                       
+                        <li class="list-group-item"><span id="bin" class="trash_button"><i class="fa fa-trash"></i></span> Meet TAs</li>
+                        <li class="list-group-item"><span id="bin" class="trash_button"><i class="fa fa-trash"></i></span> Post grades</li>
+                        <li class="list-group-item"><span id="bin" class="trash_button"><i class="fa fa-trash"></i></span> PTA meeting</li>
+                      </ul>
+                </div>
+                <div class="col-sm"></div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
+
+    </body>
+</html>
